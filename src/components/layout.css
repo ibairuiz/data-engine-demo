@@ -620,3 +620,41 @@ pre tt:after {
     font-size: 100%;
   }
 }
+
+footer {
+  margin-top: 20px;
+}
+
+.root {
+  flex-grow: 1;
+  margin-bottom: 16px;
+}
+.paper-content {
+  text-align: center;
+  padding:16px;
+}
+
+.link-inside-button {
+  color: #fff;
+  text-decoration: none;
+}
+
+.card {
+  min-width: 275;
+}
+.bullet {
+  display: 'inline-block';
+  margin: '0 2px';
+  transform: 'scale(0.8)';
+}
+.title {
+  font-size: 14;
+}
+.pos {
+  margin-bottom: 12;
+}
+
+.form-container {
+  display: 'flex';
+  flex-wrap: 'wrap';
+}
