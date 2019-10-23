@@ -1,0 +1,27 @@
+{
+    "dataDefinitionFields": [
+        {
+            "fieldType": "text",
+            "name": "fecha"
+        },
+        {
+            "fieldType": "text",
+            "name": "descripcion"
+        },
+        {
+            "fieldType": "text",
+            "name": "ejercicios"
+        },
+        {
+            "fieldType": "text",
+            "name": "enlace"
+        }
+    ],
+    "description": {
+        "en_US": "Una clase de guitarra."
+    },
+    "name": {
+        "en_US": "Clase de guitarra"
+    },
+    "storageType": "json"
+}
