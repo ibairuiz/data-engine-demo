@@ -1,7 +1,11 @@
 import axios from 'axios';
 
-const client_id = "mi-app-de-clases-client-id";
-const client_secret = "mi-app-de-clases-super-secret";
+/*
+* Utilizar las credenciales generadas al crear
+* una aplicación OAUTH2 en Liferay.s
+*/
+const client_id = "XXXXXXXXXXXX";
+const client_secret = "XXXXXXXXXXXXXXX";
 
 var token_data = {
     data: {
@@ -9,8 +13,12 @@ var token_data = {
     }
 };
 
+/**
+ * Función que recupera un token OAUTH2 de Liferay si no existe.
+ * Devuelve siempre una Promesa, resulta en el caso
+ * de encontrar un token almacenado en el sistema.
+ */
 function getToken() {
-    console.log("Entramos a por el token");
     if (token_data.data.access_token === "") {
         const tokenParams = new URLSearchParams();
         tokenParams.append('client_id', client_id);

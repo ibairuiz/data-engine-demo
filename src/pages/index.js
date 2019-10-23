@@ -14,6 +14,11 @@ import Typography from '@material-ui/core/Typography';
 import getToken from '../components/tokenFunctions'
 import getDefaultAllCollection from '../components/allCollections'
 
+/**
+ * Clase de inicio, recupera las clases del 
+ * Data Record Collection que ha debido de ser
+ * creado por defecto previamente.
+ */
 class IndexPage extends React.Component {
 
   state = {
@@ -22,14 +27,14 @@ class IndexPage extends React.Component {
     lessons:[],
     token: ''
   }
-  componentDidMount() {
 
+  componentDidMount() {
     if(this.state.lessons.length === 0) {
       this.setState({ loading: true })
-      this.fetchToken()
+      this.recuperaToken()
     }
-
   }
+
   render(){
     const clases = this.state.lessons
     return (
@@ -89,14 +94,21 @@ class IndexPage extends React.Component {
     )
   }
 
-  fetchToken = () => {
+  /**
+   * Recupera el token OAUTH2 y lo almacena en el state.
+   */
+  recuperaToken = () => {
     getToken().then(response => {
       this.setState({token: response.data.access_token});
-      this.fetchLessons()
+      this.recuperaClases()
     });
   }
   
-  fetchLessons = () => {
+  /**
+   * Recupera las clases del Data Record Collection por defecto
+   * y las guarda en el state del componente.
+   */
+  recuperaClases = () => {
     axios.get(`http://localhost:8080/o/data-engine/v1.0/data-record-collections/${getDefaultAllCollection()}/data-records`, {
           headers: {'Authorization': `Bearer ${this.state.token}`}
     })

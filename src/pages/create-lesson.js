@@ -11,6 +11,11 @@ import TextField from '@material-ui/core/TextField';
 import getToken from '../components/tokenFunctions'
 import getDefaultAllCollection from '../components/allCollections'
 
+/**
+ * Crea una clase de guitarra utilizando el endpoint de data-record.
+ * Utiliza tanto el token obtenido de getToken como la colección
+ * por defecto de getDefaultAllCollection.
+ */
 class CreateLesson extends React.Component {
   constructor(props) {
     super(props);
@@ -31,15 +36,13 @@ class CreateLesson extends React.Component {
   }
 
   handleSubmit(event) {
-    //event.preventDefault();
-    this.fetchTokenAndSave();
-
+    this.getTokenYGuardaClase();
   }
 
   render() {
     return (
       <Layout>
-        <SEO title="Page two" />
+        <SEO title="Página de guardado de clase" />
         <h1>Registra una lección</h1>
         <form className="form-container" action="/" noValidate autoComplete="off" id="lesson-form" onSubmit={this.handleSubmit}>
           <Grid container spacing={1}>
@@ -83,7 +86,7 @@ class CreateLesson extends React.Component {
                   id="enlace"
                   name="enlace"
                   label="Enlace"
-                  placeholder="¿Tienes algún enlace ?"
+                  placeholder="¿Tienes algún enlace?"
                   margin="normal"
                   variant="outlined"
                   onChange={this.handleChange}  
@@ -116,14 +119,21 @@ class CreateLesson extends React.Component {
     )
   }
 
-  fetchTokenAndSave = () => {
+  /**
+   * Recupera el token y guarda la clase
+   */
+  getTokenYGuardaClase = () => {
     getToken().then(response => {
       this.setState({token: response.data.access_token});
-      this.saveLesson()
+      this.guardaClase()
     });
   }
 
-  saveLesson = () => {
+  /**
+   * Petición post para insertar la clase como Data Record
+   * en el Data Record Collection por defecto.
+   */
+  guardaClase = () => {
     axios.post(`http://localhost:8080/o/data-engine/v1.0/data-record-collections/${getDefaultAllCollection()}/data-records`,{
 
         dataRecordValues: {

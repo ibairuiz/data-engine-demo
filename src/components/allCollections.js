@@ -1,7 +1,11 @@
-const all_lessons_collection= "37708"
+//Cambiar por el Data Record Collection deseado
+const colleccion_todas_las_clases= "XXXXXX"
 
+/**
+ * Función que devuelve la constante anteriormente definida.
+ */
 function getDefaultAllCollection() {
-    return all_lessons_collection;
+    return colleccion_todas_las_clases;
 }
 
 export default getDefaultAllCollection
