@@ -30,6 +30,7 @@ Además necesitaremos [instalar Gatsby en nuestro sistema.](https://www.gatsbyjs
 1.  **Crear las entidades.**
 
     Utiliza las API's de Data Engine para crear un Data Definition, un Data Record Collection y un Data Record, utilizando tanto las APIs de Data Engine como un token de OAUTH2. Puedes mirar /src/components/tokenFunctions.js para ver cómo recuperar un token y /src/pages/index.js y /src/pages/create-lesson.js para ver cómo llamar a Data Engine.
+    Puedes encontrar las definiciones json que yo he usado en el directorio "json-definitions"
 
 1.  **Copia el id del Data Record Collection creado.**
 
